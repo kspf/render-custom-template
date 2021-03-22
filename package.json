@@ -1,0 +1,18 @@
+{
+  "name": "render-custom-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "inquirer": "^8.0.0",
+    "request": "^2.88.2",
+    "shelljs": "^0.8.4"
+  }
+}
