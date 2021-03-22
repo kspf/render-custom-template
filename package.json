@@ -1,14 +1,15 @@
 {
   "name": "render-custom-template",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "根据预设模板生成项目",
   "main": "index.js",
   "bin": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "kspf",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kspf/render-custom-template.git"
+  },
   "dependencies": {
     "ejs": "^3.1.6",
     "inquirer": "^8.0.0",
