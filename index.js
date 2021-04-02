@@ -118,6 +118,12 @@ function cli(templateList) {
       default: '0.0.1'
     },
     {
+      type: 'input',
+      name: 'description',
+      message: 'What description?',
+      default: 'your description'
+    },
+    {
       type: 'list',
       message: 'Please select a project template',
       name: 'template',
@@ -134,16 +140,25 @@ function cli(templateList) {
 
       // 删除.git文件夹
       deleteFolderRecursive(path.join(destDir, `${answer['name']}/.git`))
+      // package.json文件路径
+      let packagePath = path.join(destDir, `${answer['name']}/package.json`)
+      // 读取package.json 文件
+      const buff = fs.readFileSync(packagePath)
+      // 转化package.json 文件为对象
+      let packageVal = JSON.parse(buff.toString())
 
-      //通过模板文件渲染
-      ejs.renderFile(path.join(destDir, `${answer['name']}/package.json`), answer, (err, result) => {
-        if (err) throw err;
-        //写入目标目录
-        fs.writeFileSync(path.join(destDir, `${answer['name']}/package.json`), result)
+      packageVal.name = answer.name
 
-        // 项目初始化
-        gitInit()
-      })
+      packageVal.version = answer.version
+
+      packageVal.description = answer.description
+      
+      //写入目标目录
+      fs.writeFileSync(path.join(destDir, `${answer['name']}/package.json`), JSON.stringify(packageVal))
+
+      // git初始化项目
+      gitInit()
+      
     } catch (err) {
       console.error(err)
     }
