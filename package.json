@@ -1,6 +1,6 @@
 {
   "name": "render-custom-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "根据预设模板生成项目",
   "main": "index.js",
   "bin": "index.js",
